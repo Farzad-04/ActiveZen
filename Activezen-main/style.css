@@ -1,0 +1,171 @@
+/* General Flexbox Utilities */
+.display-flex, .display-flex-center, .signup-content, .signin-content, .social-login, .socials {
+    display: flex;
+}
+
+.display-flex {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.display-flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
+/* Reset and Utility Styles */
+.socials {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+figure {
+    margin: 0;
+}
+
+.clear {
+    clear: both;
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+    transition: all 300ms ease;
+}
+
+/* Input Elements */
+input, select, textarea {
+    outline: none;
+    appearance: unset;
+    box-shadow: none;
+    margin: 0;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    appearance: auto;
+}
+
+/* Main Content Styles */
+body.content-area {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    line-height: 1.8;
+    color: #222;
+    background: #f8f8f8;
+}
+
+.main-container {
+    width: 900px;
+    background: #fff;
+    margin: 0 auto;
+    padding: 150px 0;
+    border-radius: 20px;
+    box-shadow: 0 15px 16px rgba(0, 0, 0, 0.05);
+}
+
+/* Specific Form Styles */
+.signup-form, .signup-image, .signin-form, .signin-image {
+    width: 50%;
+}
+
+.signup-content {
+    padding: 75px 0;
+}
+
+.signup-image {
+    margin: 0 55px 45px;
+    text-align: center;
+}
+
+
+.register-form .form-group {
+    margin-bottom: 25px;
+    clear : both;
+}
+
+.register-form input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #999;
+    padding: 6px 30px;
+}
+
+/* Button Styling */
+.form-submit {
+    background: #6dabe4;
+    color: #fff;
+    padding: 15px 39px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.form-submit:hover {
+    background: #4292dc;
+}
+
+/* Typography */
+h2.content-heading {
+    font-size: 36px;
+    font-weight: bold;
+    color: #222;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Avoid Header/Footer Styling Conflicts */
+header, footer {
+    all: unset;
+    /* If needed, apply header and footer-specific styles here */
+}
+
+
+select, input[type="date"] {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #999;
+    padding: 6px 30px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #333;
+    background: transparent;
+    margin-top: 5px;
+}
+
+select:focus, input[type="date"]:focus {
+    border-bottom: 2px solid #6dabe4;
+}
+
+select option {
+    color: #333;
+}
+
+.radio-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.radio-group label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+input[type="radio"] {
+    accent-color: #6dabe4; /* Changes the color of the radio button */
+    cursor: pointer;
+}
+
+.error {
+    color: red;
+    font-size: 0.9em;
+}

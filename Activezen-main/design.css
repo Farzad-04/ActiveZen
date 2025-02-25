@@ -1,0 +1,93 @@
+/* General Reset for the Body */
+body {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: 'white' ;
+  background-size: cover; /* Ensures the image covers the entire viewport */
+  color: #fff; /* Text color to contrast with the background */
+}
+
+/* Main Content Area */
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Weather Card */
+.card {
+  background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  padding: 2em;
+  border-radius: 30px;
+  width: 100%;
+  max-width: 420px;
+  margin: 1em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for the card */
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  margin: 0.5em;
+  border-radius: 50%;
+  border: none;
+  height: 44px;
+  width: 44px;
+  outline: none;
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+input.search-bar {
+  border: none;
+  outline: none;
+  padding: 0.4em 1em;
+  border-radius: 24px;
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+  font-family: inherit;
+  font-size: 105%;
+  width: calc(100% - 100px);
+}
+
+button:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+h1.temp {
+  margin: 0;
+  margin-bottom: 0.4em;
+}
+
+.description {
+  text-transform: capitalize;
+  margin-left: 8px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.weather.loading {
+  visibility: hidden;
+  max-width: 20px;
+  position: relative;
+}
+
+.weather.loading:after {
+  visibility: visible;
+  color: white;
+  content: "Loading....";
+  position: absolute;
+  top: 0;
+  left: 20px;
+}
