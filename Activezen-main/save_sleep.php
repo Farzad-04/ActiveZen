@@ -4,7 +4,7 @@ include "layout/header.php";
 
 if (!isset($_SESSION["User_id"])) {
     // Redirect to login if not authenticated
-    header("Location: /Data_Management_Project/login.php");
+    header("Location: login.php");
     exit;
 }
 ?>

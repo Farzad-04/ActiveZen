@@ -9,7 +9,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 // Check if the user is logged in
 if (!isset($_SESSION["User_id"])) {
-    header("location: /Data_Management_Project/login.php");
+    header("location: login.php");
     exit;
 }
 
@@ -103,7 +103,7 @@ $conn->close();
         </div>
     <?php else: ?>
         <!-- If no entries are found, display a message and link to log a new entry -->
-        <p class="text-center mt-4">No nutrition entries found. <a href="/Data_Management_Project/nutrition_tracker.php" class="text-primary">Log a new entry</a>.</p>
+        <p class="text-center mt-4">No nutrition entries found. <a href="nutrition_tracker.php" class="text-primary">Log a new entry</a>.</p>
     <?php endif; ?>
 </div>
 

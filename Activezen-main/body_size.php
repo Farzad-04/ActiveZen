@@ -4,7 +4,7 @@ include "tools/db.php"; // Include the db.php file to use the connection functio
 
 // Check if the user is logged in
 if (!isset($_SESSION["User_id"])) {
-    header("location: /Data_Management_Project/login.php");
+    header("location: login.php");
     exit;
 }
 
@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($stmt->execute()) {
                 // Redirect to the new page after successful data submission
-                header("Location: /Data_Management_Project/body_size_success.php");
+                header("Location: body_size_success.php");
                 exit; // Ensure no further code is executed after redirection
             } else {
                 echo "<p class='text-danger'>Failed to save body size data. Please try again.</p>";
@@ -200,7 +200,7 @@ $conn->close();
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9QRboXzwvbuOJ7l-XfL3YfAcjraS2H-opSQ&s" alt="Goals Image">
                     <div class="image-overlay">
                         <div class="overlay-text">
-                            <a href="/Data_Management_Project/user_bodysizes.php">View Stats</a>
+                            <a href="user_bodysizes.php">View Stats</a>
                         </div>
                     </div>
                 </div>

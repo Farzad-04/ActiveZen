@@ -7,14 +7,15 @@ include "layout/header.php";
 
 // Redirect to the admin dashboard if already logged in as admin
 if (isset($_SESSION["is_admin"]) && $_SESSION["is_admin"] === true) {
-    header("Location: /Data_Management_Project/admin_dashboard.php");
+    header("Location: admin_dashboard.php");
     exit;
 }
 
 // Initialize variables for admin ID and error messages
 $admin_id = "";
 $error = "";
-$special_admin_password = "Activezen"; // Predefined Admin Access Code
+require_once "tools/config.php";
+$special_admin_password = app_config()['admin_access_code']; // set in tools/config.local.php
 
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -25,7 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Validate input fields
     if (empty($admin_id) || empty($password) || empty($admin_password)) {
         $error = "Admin ID, Password, and Admin Access Code are required.";
-    } elseif ($admin_password !== $special_admin_password) {
+    } elseif ($special_admin_password === '') {
+        $error = "Admin login is disabled until an admin access code is set in tools/config.local.php.";
+    } elseif (!hash_equals($special_admin_password, (string) $admin_password)) {
         $error = "Invalid Admin Access Code.";
     } else {
         // Include the database connection file
@@ -50,8 +53,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Check if the admin ID exists and validate the password
         if ($statement->fetch()) {
-            if ($password === $stored_password) {
+            if (password_verify($password, $stored_password)) {
                 // Set session variables upon successful login
+                session_regenerate_id(true);
                 $_SESSION["is_admin"] = true; // Mark the session as admin
                 $_SESSION["Admin_id"] = $admin_id_result;
                 $_SESSION["Username"] = $username;
@@ -61,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION["Address"] = $address;
 
                 // Redirect to the admin dashboard
-                header("Location: /Data_Management_Project/admin_dashboard.php");
+                header("Location: admin_dashboard.php");
                 exit;
             } else {
                 $error = "Invalid password.";

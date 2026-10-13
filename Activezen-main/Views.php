@@ -4,7 +4,7 @@ include "tools/db.php"; // Database connection
 
 // Check if the user is logged in
 if (!isset($_SESSION["User_id"])) {
-    header("location: /Data_Management_Project/login.php");
+    header("location: login.php");
     exit;
 }
 
@@ -114,7 +114,7 @@ $conn->close();
                     <?php foreach ($data as $row): ?>
                         <tr>
                             <?php foreach ($row as $cell): ?>
-                                <td><?php echo htmlspecialchars($cell); ?></td>
+                                <td><?php echo htmlspecialchars((string) $cell); ?></td>
                             <?php endforeach; ?>
                         </tr>
                     <?php endforeach; ?>

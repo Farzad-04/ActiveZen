@@ -14,6 +14,6 @@ if (isset($_SESSION["Admin_id"])) {
 }
 
 // Redirect to the home page
-header("Location: /Data_Management_Project/home.php");
+header("Location: home.php");
 exit;
 ?>

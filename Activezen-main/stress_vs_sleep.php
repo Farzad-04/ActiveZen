@@ -4,7 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 if (!isset($_SESSION["User_id"])) {
-    header("Location: /Data_Management_Project/login.php");
+    header("Location: login.php");
     exit;
 }
 
@@ -18,7 +18,7 @@ $user_id = $_SESSION["User_id"];
 
 // Fetch data from the `stressvsleep` view
 $query = "SELECT Record_Date, Entry_Type, StressOrSleepLevel 
-          FROM stressvssleep 
+          FROM StressVsSleep 
           WHERE ID = ?"; // Use 'ID' as per the view definition
 $stmt = $conn->prepare($query);
 $stmt->bind_param("i", $user_id);

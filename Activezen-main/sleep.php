@@ -4,7 +4,7 @@ include "tools/db.php"; // Include the db.php file to use the connection functio
 
 // Check if the user is logged in
 if (!isset($_SESSION["User_id"])) {
-    header("location: /Data_Management_Project/login.php");
+    header("location: login.php");
     exit;
 }
 
@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($stmt->execute()) {
                 // Redirect to the confirmation page
-                header("Location: /Data_Management_Project/save_sleep.php");
+                header("Location: save_sleep.php");
                 exit; // Ensure no further code is executed after redirection
             } else {
                 echo "<p class='text-danger'>Failed to log sleep. Please try again.</p>";
@@ -183,7 +183,7 @@ $conn->close();
 
         <!-- Image Section -->
         <div class="image-container">
-            <a href="/Data_Management_Project/all_sleep.php">
+            <a href="all_sleep.php">
                 <img src="https://news.llu.edu/sites/news.llu.edu/files/styles/crop_featured_image/public/istock-1145640846.jpg?itok=z5gMjClg" alt="View All Sleep Entries">
             </a>
         </div>

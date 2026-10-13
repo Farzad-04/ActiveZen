@@ -3,7 +3,7 @@ include "layout/header.php";
 include "tools/db.php"; // Include the db.php file to use the connection function
 // Check if the user is logged in
 if (!isset($_SESSION["User_id"])) {
-    header("location: /Data_Management_Project/login.php");
+    header("location: login.php");
     exit;
 }
 ?>
@@ -94,8 +94,8 @@ if (!isset($_SESSION["User_id"])) {
         <h2>Goal Submitted Successfully!</h2>
         <p>Would you like to add another goal?</p>
         <div class="btn-container">
-            <a href="/Data_Management_Project/nutrition_goals.php" class="btn btn-yes">Yes</a>
-            <a href="/Data_Management_Project/menu.php" class="btn btn-no">No</a>
+            <a href="nutrition_goals.php" class="btn btn-yes">Yes</a>
+            <a href="menu.php" class="btn btn-no">No</a>
         </div>
     </div>
 </body>

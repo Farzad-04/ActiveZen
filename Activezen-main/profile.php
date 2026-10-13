@@ -10,7 +10,7 @@ if (session_status() == PHP_SESSION_NONE) {
 // Check if the user is authenticated
 if (!isset($_SESSION["User_id"])) {
     // Redirect to login page if user is not logged in
-    header("Location: /Data_Management_Project/login.php");
+    header("Location: login.php");
     exit;
 }
 
@@ -119,7 +119,7 @@ $date_of_birth = $_SESSION["Date_of_birth"] ?? "N/A";
             <span>Date of Birth:</span> <?= htmlspecialchars($date_of_birth) ?>
         </div>
         <div class="profile-actions">
-            <a href="/Data_Management_Project/Home.php" class="btn btn-primary">Back to Home</a>
+            <a href="Home.php" class="btn btn-primary">Back to Home</a>
         </div>
     </div>
 </body>

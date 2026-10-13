@@ -8,7 +8,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 // Check if the user is logged in
 if (!isset($_SESSION["User_id"])) {
-    header("location: /Data_Management_Project/login.php");
+    header("location: login.php");
     exit;
 }
 ?>
@@ -22,7 +22,7 @@ if (!isset($_SESSION["User_id"])) {
     <title>Weather App</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/Data_Management_Project/design.css" >
+    <link rel="stylesheet" href="design.css" >
     <script src="./script.js" defer></script>
 </head>
 

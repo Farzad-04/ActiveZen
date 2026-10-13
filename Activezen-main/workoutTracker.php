@@ -4,7 +4,7 @@ include "tools/db.php"; // Include the db.php file to use the connection functio
 
 // Check if the user is logged in
 if (!isset($_SESSION["User_id"])) {
-    header("location: /Data_Management_Project/login.php");
+    header("location: login.php");
     exit;
 }
 
@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($stmt->execute()) {
                 // Redirect to the confirmation page
-                header("Location: \Data_Management_Project\save_workout.php");
+                header("Location: save_workout.php");
                 exit; // Ensure no further code is executed after redirection
             } else {
                 echo "<p class='text-danger'>Failed to log workout. Please try again.</p>";
@@ -197,7 +197,7 @@ $conn->close();
             <img src="data:image/png;base64,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" alt="Gym Image">
             <div class="image-overlay">
                 <div class="overlay-text">
-                    <a href="/Data_Management_Project/all_workouts.php">View All Workouts</a>
+                    <a href="all_workouts.php">View All Workouts</a>
                 </div>
             </div>
         </div>

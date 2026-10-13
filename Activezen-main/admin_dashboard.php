@@ -8,7 +8,7 @@ include "layout/header.php";
 // Check if the admin is authenticated
 if (!isset($_SESSION["is_admin"]) || $_SESSION["is_admin"] !== true) {
     // Redirect to the admin login page if not authenticated
-    header("Location: /Data_Management_Project/admin_login.php");
+    header("Location: admin_login.php");
     exit;
 }
 ?>
@@ -117,14 +117,14 @@ if (!isset($_SESSION["is_admin"]) || $_SESSION["is_admin"] !== true) {
             <div class="action-card">
                 <h2>Manage Users</h2>
                 <p>View and manage user data, workout goals, and nutrition goals.</p>
-                <a href="/Data_Management_Project/user_data.php" class="btn btn-primary">Go</a>
+                <a href="user_data.php" class="btn btn-primary">Go</a>
             </div>
 
             <!-- Logout card -->
             <div class="action-card logout-card">
                 <h2>Logout</h2>
                 <p>End your session and return to the home page.</p>
-                <a href="/Data_Management_Project/admin_logout.php" class="btn btn-danger">Go</a>
+                <a href="admin_logout.php" class="btn btn-danger">Go</a>
             </div>
         </div>
     </div>

@@ -4,7 +4,7 @@ include "tools/db.php"; // Include the db.php file to use the connection functio
 
 // Check if the user is logged in
 if (!isset($_SESSION["User_id"])) {
-    header("location: /Data_Management_Project/login.php");
+    header("location: login.php");
     exit;
 }
 
@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($stmt->execute()) {
                 // Redirect to the new page after successful goal submission
-                header("Location: /Data_Management_Project/Nutritiongoalsuccessful.php");
+                header("Location: Nutritiongoalsuccessful.php");
                 exit; // Ensure no further code is executed after redirection
             } else {
                 echo "<p class='text-danger'>Failed to set goal. Please try again.</p>";
@@ -291,7 +291,7 @@ $conn->close();
             <div class="image-container">
                 <div class="image-overlay">
                     <div class="overlay-text">
-                        <a href="/Data_Management_Project/allnutritiongoals.php">View Goals</a>
+                        <a href="allnutritiongoals.php">View Goals</a>
                     </div>
                 </div>
                 <img src="https://www.myfooddiary.com/blog/asset/1360/set_health_goal_tips.jpg" alt="Nutrition Goal Image">

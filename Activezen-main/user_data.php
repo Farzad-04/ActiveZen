@@ -59,7 +59,7 @@
 
         <!-- Back to Dashboard Button -->
         <div class="text-center mt-4">
-            <a href="/Data_Management_Project/admin_dashboard.php" class="btn btn-primary">Back to Dashboard</a>
+            <a href="admin_dashboard.php" class="btn btn-primary">Back to Dashboard</a>
         </div>
     </div>
 
@@ -68,7 +68,7 @@
     async function fetchUsers() {
         try {
             // Fetching users from the PHP endpoint
-            const response = await fetch("/Data_Management_Project/fetch_users.php");
+            const response = await fetch("fetch_users.php");
             
             // Check if the response is not successful, throw an error
             if (!response.ok) throw new Error("Failed to fetch users.");
@@ -96,7 +96,7 @@
     async function fetchGoals(userId) {
         try {
             // Fetch workout goals for the user
-            const workoutResponse = await fetch(`/Data_Management_Project/fetch_workout_goals.php?user_id=${userId}`);
+            const workoutResponse = await fetch(`fetch_workout_goals.php?user_id=${userId}`);
             if (!workoutResponse.ok) throw new Error("Failed to fetch workout goals.");
             const workoutGoals = await workoutResponse.json();
 
@@ -104,7 +104,7 @@
             displayGoals(workoutGoals, "workout-goals-table", "Workout");
 
             // Fetch nutrition goals for the user
-            const nutritionResponse = await fetch(`/Data_Management_Project/fetch_nutrition_goals.php?user_id=${userId}`);
+            const nutritionResponse = await fetch(`fetch_nutrition_goals.php?user_id=${userId}`);
             if (!nutritionResponse.ok) throw new Error("Failed to fetch nutrition goals.");
             const nutritionGoals = await nutritionResponse.json();
 

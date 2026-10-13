@@ -1,4 +1,6 @@
 <?php
+// Buffer output so pages can still redirect after this header has printed
+ob_start();
 
 if (session_status() === PHP_SESSION_NONE) {
   session_start();
@@ -33,16 +35,16 @@ $admin_authenticated = isset($_SESSION["Admin_id"]); // Assuming admin session i
         <div class="collapse navbar-collapse" id="navbarHome">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link text-white" href="/Data_Management_Project/home.php">Home</a>
+              <a class="nav-link text-white" href="Home.php">Home</a>
             </li>
 
             <?php if ($user_authenticated): ?>   <!--Check if the user is authenticated. If true, hide the buttons -->
               <!-- Menu Link for Logged-in Users -->
               <li class="nav-item">
-                <a class="nav-link text-white" href="/Data_Management_Project/menu.php">Menu</a>
+                <a class="nav-link text-white" href="menu.php">Menu</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="/Data_Management_Project/tutorial.php">Tutorial</a>
+                <a class="nav-link text-white" href="Tutorial.php">Tutorial</a>
               </li>
             <?php endif; ?>
           </ul>
@@ -55,30 +57,30 @@ $admin_authenticated = isset($_SESSION["Admin_id"]); // Assuming admin session i
                   User
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/Data_Management_Project/profile.php">Profile</a></li>
+                  <li><a class="dropdown-item" href="profile.php">Profile</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="/Data_Management_Project/logout.php">Logout</a></li>
+                  <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                 </ul>
               </li>
             <?php elseif ($admin_authenticated): ?> <!--Check if the user is authenticated. If true, hide the buttons -->
               <!-- Admin Buttons for Logged-in Admin -->
               <li class="nav-item">
-                <a href="/Data_Management_Project/admin_logout.php" class="btn btn-danger me-2">Logout</a>
+                <a href="admin_logout.php" class="btn btn-danger me-2">Logout</a>
               </li>
               <li class="nav-item">
-                <a href="/Data_Management_Project/user_data.php" class="btn btn-info">User Data</a>
+                <a href="user_data.php" class="btn btn-info">User Data</a>
               </li>
             <?php else: ?>
               <!-- Login/Register for Guests -->
               <li class="nav-item">
-                <a href="/Data_Management_Project/register.php" class="btn btn-outline-light me-2">Register</a>
+                <a href="register.php" class="btn btn-outline-light me-2">Register</a>
               </li>
               <li class="nav-item">
-                <a href="/Data_Management_Project/login.php" class="btn btn-light">Login</a>
+                <a href="login.php" class="btn btn-light">Login</a>
               </li>
               <!-- Admin Login Button -->
               <li class="nav-item">
-                <a href="/Data_Management_Project/admin_login.php" class="btn btn-warning ms-2">Admin</a>
+                <a href="admin_login.php" class="btn btn-warning ms-2">Admin</a>
               </li>
             <?php endif; ?>
           </ul>

@@ -11,7 +11,7 @@ if (session_status() === PHP_SESSION_NONE) {
 // Check if the user is logged in by verifying the session ID
 if (!isset($_SESSION["User_id"])) {
     // Redirect to the login page if the user is not logged in
-    header("location: /Data_Management_Project/login.php");
+    header("location: login.php");
     exit;
 }
 
@@ -87,7 +87,7 @@ $conn->close(); // Close the database connection
                             <td><?php echo htmlspecialchars($workout["Duration"]); ?></td>
                             <td><?php echo htmlspecialchars($workout["Calories_burned"]); ?></td>
                             <td><?php echo htmlspecialchars($workout["Date_time"]); ?></td>
-                            <td><?php echo htmlspecialchars($workout["Notes"]); ?></td>
+                            <td><?php echo htmlspecialchars((string) $workout["Notes"]); ?></td>
                             <td>
                                 <!-- Form to delete a workout, with confirmation before submitting -->
                                 <form method="POST" action="" onsubmit="return confirm('Are you sure you want to delete this workout?');">
@@ -102,7 +102,7 @@ $conn->close(); // Close the database connection
         </div>
     <?php else: ?>
         <!-- Message if no workouts are found -->
-        <p class="text-center mt-4">No workouts found. <a href="/Data_Management_Project/workout_tracker.php" class="text-primary">Log a new workout</a>.</p>
+        <p class="text-center mt-4">No workouts found. <a href="workout_tracker.php" class="text-primary">Log a new workout</a>.</p>
     <?php endif; ?>
 </div>
 

@@ -4,7 +4,7 @@ include "layout/header.php";
 
 // If the user is already logged in, redirect to the home page
 if (isset($_SESSION["User_id"])) {
-    header("location: /Data_Management_Project/Home.php");
+    header("location: Home.php");
     exit;
 }
 
@@ -44,19 +44,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Check if a user record was found
         if ($statement->fetch()) {
             // Validate the provided password against the stored password
-            if ($password == $stored_password)  {
+            if (password_verify($password, $stored_password)) {
                 // Store user information in session variables upon successful login
+                session_regenerate_id(true);
                 $_SESSION["User_id"] = $user_id_result;
                 $_SESSION["Fname"] = $first_name;
                 $_SESSION["Lname"] = $last_name;
                 $_SESSION["Username"] = $user_name;
-                $_SESSION["password"] = $password;
                 $_SESSION["Date_of_birth"] = $date_of_birth;
                 $_SESSION["Address"] = $address;
                 $_SESSION["Sex"] = $gender;
 
                 // Redirect to the home page after login
-                header("Location: /Data_Management_Project/Home.php");
+                header("Location: Home.php");
                 exit;
             } else {
                 $error = "Invalid password."; // Error if password does not match

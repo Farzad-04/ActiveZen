@@ -1,0 +1,7 @@
+# Local settings and secrets
+Activezen-main/tools/config.local.php
+
+# IDE and OS files
+.idea/
+.DS_Store
+__MACOSX/

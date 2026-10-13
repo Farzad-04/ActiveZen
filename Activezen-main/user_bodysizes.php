@@ -9,7 +9,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 // Check if the user is logged in
 if (!isset($_SESSION["User_id"])) {
-    header("location: /Data_Management_Project/login.php");
+    header("location: login.php");
     exit;
 }
 
@@ -104,7 +104,7 @@ $conn->close();
         </div>
     <?php else: ?>
         <!-- Display a message if no entries are found, with a link to add the first entry -->
-        <p class="text-center mt-4">No body size entries found. <a href="/Data_Management_Project/track_body_size.php" class="text-primary">Add your first entry</a>.</p>
+        <p class="text-center mt-4">No body size entries found. <a href="track_body_size.php" class="text-primary">Add your first entry</a>.</p>
     <?php endif; ?>
 </div>
 

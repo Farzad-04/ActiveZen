@@ -1,7 +1,7 @@
 <?php  
 include "layout/header.php";
 if (!isset($_SESSION["User_id"])) {
-    header("location: /Data_Management_Project/login.php");
+    header("location: login.php");
     exit;
 }
 ?>

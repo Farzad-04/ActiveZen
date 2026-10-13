@@ -16,7 +16,7 @@ $user_id = $_SESSION["User_id"];
 $conn = getDatabaseConnection();
 
 // Query the `stressvsleep` view for the logged-in user
-$query = "SELECT Record_Date, Entry_Type, StressOrSleepLevel FROM stressvsleep WHERE ID = ?";
+$query = "SELECT Record_Date, Entry_Type, StressOrSleepLevel FROM StressVsSleep WHERE ID = ?";
 $stmt = $conn->prepare($query);
 $stmt->bind_param("i", $user_id);
 $stmt->execute();

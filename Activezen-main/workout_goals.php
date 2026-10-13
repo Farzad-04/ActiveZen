@@ -4,7 +4,7 @@ include "tools/db.php"; // Include the db.php file to use the connection functio
 
 // Check if the user is logged in
 if (!isset($_SESSION["User_id"])) {
-    header("location: /Data_Management_Project/login.php");
+    header("location: login.php");
     exit;
 }
 
@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($stmt->execute()) {
                 // Redirect to the new page after successful goal submission
-                header("Location: /Data_Management_Project/Workoutgoalsuccessful.php");
+                header("Location: Workoutgoalsuccessful.php");
                 exit; // Ensure no further code is executed after redirection
             } else {
                 echo "<p class='text-danger'>Failed to set goal. Please try again.</p>";
@@ -292,7 +292,7 @@ $conn->close();
     <img src="https://jobsforeditors.com/blog/wp-content/uploads/2018/11/How-to-measure-your-goals-as-a-writer.jpg" alt="Gym Image">
     <div class="image-overlay">
         <div class="overlay-text">
-            <a href="/Data_Management_Project/allworkoutgoals.php">View Goals</a> <!-- Replace with your desired URL -->
+            <a href="allworkoutgoals.php">View Goals</a> <!-- Replace with your desired URL -->
         </div>
     </div>
 </div>

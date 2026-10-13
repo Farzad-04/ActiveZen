@@ -9,7 +9,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 // Check if the user is logged in
 if (!isset($_SESSION["User_id"])) {
-    header("location: /Data_Management_Project/login.php");
+    header("location: login.php");
     exit;
 }
 
@@ -95,7 +95,7 @@ $conn->close();
             </table>
         </div>
     <?php else: ?>
-        <p class="text-center mt-4">No workout goals found. <a href="/Data_Management_Project/set_goal.php" class="text-primary">Set a new goal</a>.</p>
+        <p class="text-center mt-4">No workout goals found. <a href="workout_goals.php" class="text-primary">Set a new goal</a>.</p>
     <?php endif; ?>
 </div>
 

@@ -4,7 +4,7 @@ include "layout/header.php";
 
 // Redirect the user to the home page if they are already logged in
 if (isset($_SESSION["User_id"])){
-    header("location: /Data_Management_Project/Home.php");
+    header("location: Home.php");
     exit;
 }
 
@@ -127,6 +127,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     if (empty($user_id)){
         $user_id_error = "User ID is required";
         $error = true;
+    } elseif (!ctype_digit($user_id)) {
+        $user_id_error = "User ID must be a number";
+        $error = true;
     }
 
     // Validate gender selection
@@ -148,23 +151,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
         );
 
-        $statement->bind_param('sssssssss', $user_id, $first_name, $last_name, $user_name, $password, $email, $date_of_birth, $address, $gender);
+        // Store only a salted hash of the password, never the password itself
+        $password_hash = password_hash($password, PASSWORD_DEFAULT);
+
+        $statement->bind_param('sssssssss', $user_id, $first_name, $last_name, $user_name, $password_hash, $email, $date_of_birth, $address, $gender);
         $statement->execute();
         $statement->close();
 
         // Set session variables for the logged-in user
+        session_regenerate_id(true);
         $_SESSION["User_id"] = $user_id;
         $_SESSION["Fname"] = $first_name;
         $_SESSION["Lname"] = $last_name;
         $_SESSION["Username"] = $user_name;
-        $_SESSION["password"] = $password;
         $_SESSION["Email"] = $email;
         $_SESSION["Date_of_birth"] = $date_of_birth;
         $_SESSION["Address"] = $address;
         $_SESSION["Sex"] = $gender;
 
         // Redirect to the home page
-        header("Location: /Data_Management_Project/Home.php");
+        header("Location: Home.php");
         exit;
     }
 }
@@ -179,7 +185,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Register Forum</title>
     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
-    <link rel="stylesheet" href="/Data_Management_Project/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="main">
@@ -252,7 +258,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                             </div>
                             <script>
                                 function goToHomepage() {
-                                    window.location.href = '/Data_Management_Project/Home.php';
+                                    window.location.href = 'Home.php';
                                 }
                             </script>
                         </form>

@@ -6,7 +6,7 @@ include "layout/header.php";
 // Check if the user is authenticated
 if (!isset($_SESSION["User_id"])) {
     // Redirect to login if not authenticated
-    header("Location: /Data_Management_Project/login.php");
+    header("Location: login.php");
     exit;
 }
 ?>
@@ -65,8 +65,8 @@ if (!isset($_SESSION["User_id"])) {
             <h2>Nutrition Successfully Submitted!</h2>
             <p>Would you like to log another nutrition entry?</p>
             <div>
-                <a href="\Data_Management_Project\nutrient_tracker.php" class="btn">Yes</a>
-                <a href="\Data_Management_Project\menu.php" class="btn">No</a>
+                <a href="nutrient_tracker.php" class="btn">Yes</a>
+                <a href="menu.php" class="btn">No</a>
             </div>
         </div>
     </div>
