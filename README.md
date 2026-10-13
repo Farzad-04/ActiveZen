@@ -1,4 +1,8 @@
 # ActiveZen Fitness App
+
+<img width="1470" height="838" alt="Screenshot 2026-10-12 at 11 00 42 PM" src="https://github.com/user-attachments/assets/c99ac7f6-4a95-4fe9-83ba-1b7d1e4ea918" />
+
+
 ## Overview
 
 The Fitness App is designed to help users efficiently track their health and fitness goals. It allows users to log workouts, monitor nutrition, track sleep patterns, and learn basic workouts through an integrated tutorial section. Additionally, the app provides interactive features such as graphs and detailed statistics to assess overall wellness. An admin section is also included for managing users.
